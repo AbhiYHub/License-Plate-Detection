@@ -7,9 +7,11 @@ img = cv2.imread("image full path if in different location")
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 plt.imshow(cv2.cvtColor(gray, cv2.COLOR_BGR2RGB))
 plt.show()
+
 edged = cv2.Canny(gray, 30, 200)
 plt.imshow(cv2.cvtColor(edged, cv2.COLOR_BGR2RGB))
 plt.show()
+
 contours, new = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 contours = sorted(contours, key=cv2.contourArea, reverse=True)[:30]
 
